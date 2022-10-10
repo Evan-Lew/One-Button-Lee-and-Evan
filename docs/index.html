@@ -77,13 +77,25 @@ function update() {
   timer += 1;
   score = (timer) / 50;
 
+  // Level titles
+  if (difficulty < 1.03) {
+    if (timer % 2 == 0) {
+      color("yellow");
+    }
+    else{
+      color("light_yellow");
+    }
+    text("LEVEL 1".toString(), 78, 20);
+  }
+
   // Changing flicker back and forth
   if (flicker) {
       flicker = false;
     }
-    else {
-      flicker = true;
-    }
+  else {
+    flicker = true;
+  }
+
 
   // Adding right rectangle
   if (difficulty > 1.03) {
@@ -180,6 +192,8 @@ function update() {
   // Debug
   text(jump_height.toString(), 3, 10);
   text(y_pos.toString(), 3, 16);
+
+  
 }
 
 addEventListener("load", onLoad);
