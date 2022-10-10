@@ -70,19 +70,53 @@ let animTicks;
 function update() {
   if (!ticks) {
     x_pos = 50;
-    y_pos = 87;
+    y_pos = 97;
     direction = 1;
     animTicks = 0;
 
     timer = 0;
+
+    right_rect_x = 190;
+    left_rect_x = 10;
+    bottom_rect_y = 90;
+    top_rect_y = 10;
   }
 
   color("light_black");
   // Floor
-  rect(0, 90, 200, 10);
+  //rect(0, 90, 200, 10);
 
-  rect(190, 0, 200, 100);
+  // Adding right rectangle
+  if (difficulty > 1.02) {
+    rect(right_rect_x, 0, 200, 100);
+  }
+  if (difficulty > 1.05) {
+    right_rect_x = 170;
+  }
 
+  // Adding left rectangle
+  if (difficulty > 1.07) {
+    rect(0, 0, left_rect_x, 100);
+  }
+  if (difficulty > 1.09) {
+    left_rect_x = 30;
+  }
+
+  // Adding bottom rectangle
+  if (difficulty > 1.11) {
+    rect(0, bottom_rect_y, 200, 100);
+  }
+  if (difficulty > 1.13) {
+    bottom_rect_y = 70;
+  }
+
+  // Adding top rectangle
+  if (difficulty > 1.15) {
+    rect(0, 0, 200, top_rect_y);
+  }
+  if (difficulty > 1.17) {
+    top_rect_y = 30;
+  }
 
   // Player controls
   color("black");
@@ -92,7 +126,7 @@ function update() {
   // x_pos = wrap(x_pos + direction * difficulty, -3, 203); // difficulty makes it faster every wrap
   x_pos = wrap(x_pos + direction, -3, 203);
   animTicks += difficulty;
-  
+
   // End the game if player hits a wall
   const isCollidingwithWall = char(input.isJustPressed ?
     "b" : addWithCharCode("a", floor(animTicks / 20) % 2), x_pos, y_pos, {mirror: { x: direction }}).isColliding.rect.light_black;
@@ -101,7 +135,7 @@ function update() {
   }
   
   // Player control - flying
-  if (input.isPressed && y_pos > 9) {
+  if (input.isPressed && y_pos > 3) {
     timer += 1;
     if (timer > 10) {
       y_pos -= 1;
@@ -112,7 +146,7 @@ function update() {
   }
   
   // Gravity to drag the player down
-  if (y_pos < 87) {
+  if (y_pos < 97) {
     y_pos += 0.5;
   }  
 
