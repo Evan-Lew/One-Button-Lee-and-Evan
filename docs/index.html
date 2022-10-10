@@ -15,56 +15,102 @@
     <script src="https://unpkg.com/crisp-game-lib@1.1.0/docs/bundle.js"></script>
 
 <script>
-// The title of the game to be displayed on the title screen
-title = "Lee and Evan Game";
+title = "BLACKOUT";
 
-// The description, which is also displayed on the title screen
 description = `
-
+[Tap]  Turn
 `;
 
-// The array of custom sprites
 characters = [
 `
-
-l   l
- lllll
-l   l
-
-
+  bb
+  b  b
+bbbbb
+  bbbb
+ b
+b
+`,`
+   gg
+   g  
+ggggg
+ gg  g
+g  g
+    g
+`,`
+  yy
+  yy
+ yyyy
+y    y
+y    y
+y    y
+`,`
+  yy
+  yy
+yyyyyy
+y    y
+ y  y
+ y  y
 `
 ];
 
-// Game design variable container
-const G = {
-	WIDTH: 200,
-	HEIGHT: 100,
-
-    PLAYER_X_POS: -10,
-    PLAYER_Y_POS: -10,
-};
-
-// Game runtime options
 options = {
-	viewSize: {x: G.WIDTH, y: G.HEIGHT},
-    isReplayEnabled: true,
-    //isPlayingBgm: true,
-    seed: 1,
-    //theme: "shapeDark",
+  viewSize: { x: 200, y: 100 },
+  //isPlayingBgm: true,
+  isReplayEnabled: true,
+  seed: 1,
 };
 
-// JSDoc comments for typing
+/** @type {{x: number, height: number, speed: number}[]} */
+let x;
+let vx;
+let avx;
+let animTicks;
 
-/** @type {{arrow: Vector}} */
-let player;
-
-// The game loop function
 function update() {
-    // The init function running at startup
-	if (!ticks) {
-        
+  if (!ticks) {
+    x_pos = 50;
+    y_pos = 87;
+    vx = 1;
+    avx = 0;
+    animTicks = 0;
+
+    timer = 0;
+  }
+  color("black");
+  if (input.isJustPressed) {
+    vx *= -1;
+  }
+  x_pos = wrap(x_pos + vx * difficulty * (1 + avx), -3, 203);
+  avx *= 0.9;
+  animTicks += difficulty;
+  char(input.isJustPressed ? "b" : addWithCharCode("a", floor(animTicks / 20) % 2), x_pos, y_pos, {mirror: { x: vx }});
+  
+  color("light_black");
+  rect(0, 90, 200, 10);
+
+  if (y_pos < 87) {
+    y_pos += 0.5;
+  }  
+
+
+  text(timer.toString(), 3, 10);
+  text(y_pos.toString(), 3, 15);
+  if (input.isPressed && y_pos > 9) {
+    timer += 1;
+    if (timer > 10) {
+      y_pos -= 1;
     }
-    
+  }
+  else {
+    timer = 0;
+  }
+
+  if (difficulty > 1.01) {
+    line(200, 11, 200, 100, 10); 
+  }
+  if (difficulty > 1.03) {
+    line(190, 11, 190, 100, 10); 
+  }
 }
 
 addEventListener("load", onLoad);
