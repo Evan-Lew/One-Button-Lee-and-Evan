@@ -68,8 +68,6 @@ function update() {
     // Rectangle variables
     right_rect_x = 190;
     left_rect_x = 10;
-    bottom_rect_y = 90;
-    top_rect_y = 10;
   }
   
   // Calculate score
@@ -84,9 +82,11 @@ function update() {
     else{
       color("light_yellow");
     }
-    text("LEVEL 1".toString(), 78, 20);
+    text("LEVEL 1".toString(), 78, 35);
+    line(77, 42, 117, 42, 1.5);
   }
 
+  // Level 1 Rectangles
   // Adding right rectangle
   if (difficulty > 1.03) {
     if (difficulty > 1.06) {
@@ -100,7 +100,7 @@ function update() {
         color("light_yellow");
       }
     }
-    rect(right_rect_x, 0, 200, 100);  
+    rect(190, 0, 10, 100);  
   }
 
   // Adding left rectangle
@@ -116,7 +116,7 @@ function update() {
         color("light_yellow");
       }
     }
-    rect(0, 0, left_rect_x, 100);
+    rect(0, 0, 10, 100);
   }
 
   // Adding bottom rectangle
@@ -132,7 +132,7 @@ function update() {
         color("light_yellow");
       }
     }
-    rect(10, bottom_rect_y, 180, 100);
+    rect(10, 90, 180, 10);
   }
 
   // Adding top rectangle
@@ -148,7 +148,41 @@ function update() {
         color("light_yellow");
       }
     }
-    rect(10, 0, 180, top_rect_y);
+    rect(10, 0, 180, 10);
+  }
+
+  if (difficulty > 1.15) {
+    if (difficulty > 1.18) {
+      color("light_black")
+    }
+    else {
+      if (timer % 2 == 0) {
+        color("white");
+      }
+      else {
+        color("light_yellow");
+      }
+    }
+    rect(170, 10, 10, 80);
+    rect(20, 10, 10, 80);
+    rect(30, 70, 140, 10);
+    rect(30, 20, 140, 10);
+  }
+
+  if (difficulty > 1.18) {
+    if (difficulty > 1.2) {
+      color("light_black")
+    }
+    else {
+      if (timer % 2 == 0) {
+        color("white");
+      }
+      else {
+        color("light_yellow");
+      }
+    }
+    rect(130, 30, 10, 40);
+    rect(60, 30, 10, 40);
   }
 
   // Player controls
