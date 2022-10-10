@@ -18,8 +18,10 @@
 title = "BLACKOUT";
 
 description = `
-[Tap]  Turn
-[Hold] Fly
+   [Tap]  Turn
+   [Hold] Fly    
+
+STAY IN THE LIGHT
 `;
 
 characters = [
@@ -37,21 +39,7 @@ ggggg
  gg  g
 g  g
     g
-`,`
-  yy
-  yy
- yyyy
-y    y
-y    y
-y    y
-`,`
-  yy
-  yy
-yyyyyy
-y    y
- y  y
- y  y
-`
+`,
 ];
 
 options = {
@@ -74,15 +62,20 @@ function update() {
     direction = 1;
     animTicks = 0;
 
+    jump_height = 0;
     timer = 0;
+    flicker = false;
 
+    // Rectangle variables
     right_rect_x = 190;
     left_rect_x = 10;
     bottom_rect_y = 90;
     top_rect_y = 10;
-
-    flicker = false;
   }
+  
+  // Calculate score
+  timer += 1;
+  score = (timer) / 50;
 
   // Changing flicker back and forth
   if (flicker) {
@@ -106,45 +99,50 @@ function update() {
     rect(right_rect_x, 0, 200, 100);  
   }
 
-  color("white");
-
   // Adding left rectangle
-  if (difficulty > 1.08) {
+  if (difficulty > 1.06) {
     if (flicker) {
       color("white");
     }
     else {
       color("light_yellow");
     }
-    if (difficulty > 1.11) {
+    if (difficulty > 1.09) {
       color("light_black")
     }
     rect(0, 0, left_rect_x, 100);
   }
 
-  // // Adding left rectangle
-  // if (difficulty > 1.07) {
-  //   rect(0, 0, left_rect_x, 100);
-  // }
-  // if (difficulty > 1.09) {
-  //   left_rect_x = 30;
-  // }
+  // Adding bottom rectangle
+  if (difficulty > 1.09) {
+    if (flicker) {
+      color("white");
+    }
+    else {
+      color("light_yellow");
+    }
+    if (difficulty > 1.12) {
+      color("light_black")
+    }
+    rect(0, bottom_rect_y, 200, 100);
+  }
 
-  // // Adding bottom rectangle
-  // if (difficulty > 1.11) {
-  //   rect(0, bottom_rect_y, 200, 100);
-  // }
-  // if (difficulty > 1.13) {
-  //   bottom_rect_y = 70;
-  // }
+  // Adding top rectangle
+  if (difficulty > 1.12) {
+    if (flicker) {
+      color("white");
+    }
+    else {
+      color("light_yellow");
+    }
+    if (difficulty > 1.15) {
+      color("light_black")
+    }
+    rect(0, 0, 200, top_rect_y);
+  }
 
-  // // Adding top rectangle
-  // if (difficulty > 1.15) {
-  //   rect(0, 0, 200, top_rect_y);
-  // }
-  // if (difficulty > 1.17) {
-  //   top_rect_y = 30;
-  // }
+
+
 
   // Player controls
   color("black");
@@ -164,13 +162,14 @@ function update() {
   
   // Player control - flying
   if (input.isPressed && y_pos > 3) {
-    timer += 1;
-    if (timer > 10) {
+    jump_height += 1;
+    // if holding input for 10 start flying
+    if (jump_height > 10) {
       y_pos -= 1;
     }
   }
   else {
-    timer = 0;
+    jump_height = 0;
   }
   
   // Gravity to drag the player down
@@ -178,13 +177,9 @@ function update() {
     y_pos += 0.5;
   }  
 
-
-  text(timer.toString(), 3, 10);
+  // Debug
+  text(jump_height.toString(), 3, 10);
   text(y_pos.toString(), 3, 16);
-  
-
-  
-
 }
 
 addEventListener("load", onLoad);
