@@ -80,43 +80,71 @@ function update() {
     left_rect_x = 10;
     bottom_rect_y = 90;
     top_rect_y = 10;
+
+    flicker = false;
   }
 
-  color("light_black");
-  // Floor
-  //rect(0, 90, 200, 10);
+  // Changing flicker back and forth
+  if (flicker) {
+      flicker = false;
+    }
+    else {
+      flicker = true;
+    }
 
   // Adding right rectangle
-  if (difficulty > 1.02) {
-    rect(right_rect_x, 0, 200, 100);
+  if (difficulty > 1.03) {
+    if (flicker) {
+      color("white");
+    }
+    else {
+      color("light_yellow");
+    }
+    if (difficulty > 1.06) {
+      color("light_black")
+    }
+    rect(right_rect_x, 0, 200, 100);  
   }
-  if (difficulty > 1.05) {
-    right_rect_x = 170;
-  }
+
+  color("white");
 
   // Adding left rectangle
-  if (difficulty > 1.07) {
+  if (difficulty > 1.08) {
+    if (flicker) {
+      color("white");
+    }
+    else {
+      color("light_yellow");
+    }
+    if (difficulty > 1.11) {
+      color("light_black")
+    }
     rect(0, 0, left_rect_x, 100);
   }
-  if (difficulty > 1.09) {
-    left_rect_x = 30;
-  }
 
-  // Adding bottom rectangle
-  if (difficulty > 1.11) {
-    rect(0, bottom_rect_y, 200, 100);
-  }
-  if (difficulty > 1.13) {
-    bottom_rect_y = 70;
-  }
+  // // Adding left rectangle
+  // if (difficulty > 1.07) {
+  //   rect(0, 0, left_rect_x, 100);
+  // }
+  // if (difficulty > 1.09) {
+  //   left_rect_x = 30;
+  // }
 
-  // Adding top rectangle
-  if (difficulty > 1.15) {
-    rect(0, 0, 200, top_rect_y);
-  }
-  if (difficulty > 1.17) {
-    top_rect_y = 30;
-  }
+  // // Adding bottom rectangle
+  // if (difficulty > 1.11) {
+  //   rect(0, bottom_rect_y, 200, 100);
+  // }
+  // if (difficulty > 1.13) {
+  //   bottom_rect_y = 70;
+  // }
+
+  // // Adding top rectangle
+  // if (difficulty > 1.15) {
+  //   rect(0, 0, 200, top_rect_y);
+  // }
+  // if (difficulty > 1.17) {
+  //   top_rect_y = 30;
+  // }
 
   // Player controls
   color("black");
