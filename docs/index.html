@@ -19,6 +19,7 @@ title = "BLACKOUT";
 
 description = `
 [Tap]  Turn
+[Hold] Fly
 `;
 
 characters = [
@@ -61,29 +62,26 @@ options = {
 };
 
 /** @type {{x: number, height: number, speed: number}[]} */
-let x;
-let vx;
-let avx;
+let direction;
 let animTicks;
 
 function update() {
   if (!ticks) {
     x_pos = 50;
     y_pos = 87;
-    vx = 1;
-    avx = 0;
+    direction = 1;
     animTicks = 0;
 
     timer = 0;
   }
   color("black");
   if (input.isJustPressed) {
-    vx *= -1;
+    direction *= -1;
   }
-  x_pos = wrap(x_pos + vx * difficulty * (1 + avx), -3, 203);
-  avx *= 0.9;
+  // x_pos = wrap(x_pos + direction * difficulty, -3, 203); // difficulty makes it faster every wrap
+  x_pos = wrap(x_pos + direction, -3, 203);
   animTicks += difficulty;
-  char(input.isJustPressed ? "b" : addWithCharCode("a", floor(animTicks / 20) % 2), x_pos, y_pos, {mirror: { x: vx }});
+  char(input.isJustPressed ? "b" : addWithCharCode("a", floor(animTicks / 20) % 2), x_pos, y_pos, {mirror: { x: direction }});
   
   color("light_black");
   rect(0, 90, 200, 10);
@@ -94,7 +92,7 @@ function update() {
 
 
   text(timer.toString(), 3, 10);
-  text(y_pos.toString(), 3, 15);
+  text(y_pos.toString(), 3, 16);
   if (input.isPressed && y_pos > 9) {
     timer += 1;
     if (timer > 10) {
