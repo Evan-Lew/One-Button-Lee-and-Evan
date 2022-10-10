@@ -61,6 +61,8 @@ options = {
   seed: 1,
 };
 
+// JSDoc comments for typing
+
 /** @type {{x: number, height: number, speed: number}[]} */
 let direction;
 let animTicks;
@@ -74,6 +76,15 @@ function update() {
 
     timer = 0;
   }
+
+  color("light_black");
+  // Floor
+  rect(0, 90, 200, 10);
+
+  rect(190, 0, 200, 100);
+
+
+  // Player controls
   color("black");
   if (input.isJustPressed) {
     direction *= -1;
@@ -81,18 +92,15 @@ function update() {
   // x_pos = wrap(x_pos + direction * difficulty, -3, 203); // difficulty makes it faster every wrap
   x_pos = wrap(x_pos + direction, -3, 203);
   animTicks += difficulty;
-  char(input.isJustPressed ? "b" : addWithCharCode("a", floor(animTicks / 20) % 2), x_pos, y_pos, {mirror: { x: direction }});
   
-  color("light_black");
-  rect(0, 90, 200, 10);
-
-  if (y_pos < 87) {
-    y_pos += 0.5;
-  }  
-
-
-  text(timer.toString(), 3, 10);
-  text(y_pos.toString(), 3, 16);
+  // End the game if player hits a wall
+  const isCollidingwithWall = char(input.isJustPressed ?
+    "b" : addWithCharCode("a", floor(animTicks / 20) % 2), x_pos, y_pos, {mirror: { x: direction }}).isColliding.rect.light_black;
+  if (isCollidingwithWall) {
+    end();
+  }
+  
+  // Player control - flying
   if (input.isPressed && y_pos > 9) {
     timer += 1;
     if (timer > 10) {
@@ -102,13 +110,19 @@ function update() {
   else {
     timer = 0;
   }
+  
+  // Gravity to drag the player down
+  if (y_pos < 87) {
+    y_pos += 0.5;
+  }  
 
-  if (difficulty > 1.01) {
-    line(200, 11, 200, 100, 10); 
-  }
-  if (difficulty > 1.03) {
-    line(190, 11, 190, 100, 10); 
-  }
+
+  text(timer.toString(), 3, 10);
+  text(y_pos.toString(), 3, 16);
+  
+
+  
+
 }
 
 addEventListener("load", onLoad);
