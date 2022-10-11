@@ -72,7 +72,7 @@ function update() {
   
   // Calculate score
   timer += 1;
-  score = (timer) / 50;
+  score = (timer) / 60;
 
   // --Level titles--------------------------------
   // Level 1
@@ -219,71 +219,199 @@ function update() {
       if (difficulty > 1.33) {
           color("light_black")
         }
-        else {
-          if (timer % 2 == 0) {
-            color("white");
-          }
-          else {
-            color("light_yellow");
-          }
+      else {
+        if (timer % 2 == 0) {
+          color("white");
         }
-        rect(97.5, 0, 5, 100);
-        rect(195, 0, 5, 10);
-        rect(195, 90, 5, 10);
-        rect(0, 0, 5, 10);
-        rect(0, 90, 5, 10);
+        else {
+          color("light_yellow");
+        }
+      }
+      rect(97.5, 0, 5, 100);
+      rect(195, 0, 5, 10);
+      rect(195, 90, 5, 10);
+      rect(0, 0, 5, 10);
+      rect(0, 90, 5, 10);
     }
     if (difficulty > 1.36) {
       if (difficulty > 1.38) {
           color("light_black")
         }
-        else {
-          if (timer % 2 == 0) {
-            color("white");
-          }
-          else {
-            color("light_yellow");
-          }
+      else {
+        if (timer % 2 == 0) {
+          color("white");
         }
-        rect(195, 30, 5, 40);
-        rect(0, 30, 5, 40);
+        else {
+          color("light_yellow");
+        }
+      }
+      rect(195, 30, 5, 40);
+      rect(0, 30, 5, 40);
     }
     if (difficulty > 1.4) {
       if (difficulty > 1.42) {
           color("light_black")
         }
-        else {
-          if (timer % 2 == 0) {
-            color("white");
-          }
-          else {
-            color("light_yellow");
-          }
+      else {
+        if (timer % 2 == 0) {
+          color("white");
         }
-        rect(48.75, 0, 5, 30);
-        rect(48.75, 70, 5, 30);
-        rect(146.25, 0, 5, 30);
-        rect(146.25, 70, 5, 30);
+        else {
+          color("light_yellow");
+        }
+      }
+      rect(48.75, 0, 5, 30);
+      rect(48.75, 70, 5, 30);
+      rect(146.25, 0, 5, 30);
+      rect(146.25, 70, 5, 30);
     }
     if (difficulty > 1.43) {
       if (difficulty > 1.45) {
           color("light_black")
         }
-        else {
-          if (timer % 2 == 0) {
-            color("white");
-          }
-          else {
-            color("light_yellow");
-          }
+      else {
+        if (timer % 2 == 0) {
+          color("white");
         }
-        rect(25.65, 35, 2.5, 30);
-        rect(74.375, 35, 2.5, 30);
-        rect(123.125, 35, 2.5, 30);
-        rect(171.875, 35, 2.5, 30);
+        else {
+          color("light_yellow");
+        }
+      }
+      rect(25.65, 35, 2.5, 30);
+      rect(74.375, 35, 2.5, 30);
+      rect(123.125, 35, 2.5, 30);
+      rect(171.875, 35, 2.5, 30);
     }
   }
   //--End Level 2 Rectangles----------------------------------
+
+  //--Begin Level 3 Rectangles--------------------------------
+  if (difficulty > 1.56) {
+    if (difficulty > 1.57) {
+      color("light_black")
+    }
+    else {
+      if (timer % 2 == 0) {
+        color("white");
+      }
+      else {
+        color("light_yellow");
+      }
+    }
+    rect(0, 98, 10, 2);
+    rect(60, 98, 10, 2);
+    rect(130, 98, 10, 2);
+    rect(190, 98, 10, 2);
+  }
+
+  if (difficulty > 1.59) {
+    if (difficulty > 1.6) {
+      color("light_black")
+    }
+    else {
+      if (timer % 2 == 0) {
+        color("white");
+      }
+      else {
+        color("light_yellow");
+      }
+    }
+    rect(0, 0, 10, 2);
+    rect(60, 0, 10, 2);
+    rect(130, 0, 10, 2);
+    rect(190, 0, 10, 2);
+  }
+
+  if (difficulty > 1.6) {
+    if (difficulty > 1.63) {
+      color("light_black")
+    }
+    else {
+      if (timer % 2 == 0) {
+        color("white");
+      }
+      else {
+        color("light_yellow");
+      }
+    }
+    rect(32.5, 68, 5, 2);
+    rect(97.5, 68, 5, 2);
+    rect(162.5, 68, 5, 2);
+  
+    rect(32.5, 30, 5, 2);
+    rect(97.5, 30, 5, 2);
+    rect(162.5, 30, 5, 2);
+  }
+
+  if (difficulty > 1.65) {
+    if (difficulty > 1.66) {
+      color("light_black")
+    }
+    else {
+      if (timer % 2 == 0) {
+        color("white");
+      }
+      else {
+        color("light_yellow");
+      }
+    }
+    rect(0, 48, 5, 2);
+    rect(62.5, 48, 5, 2);
+    rect(133.5, 48, 5, 2);
+    rect(195, 48, 5, 2);
+  }
+  
+  // // Bottom rectangles
+      // rect(0, 98, 10, 2);
+      // rect(60, 98, 10, 2);
+      // rect(130, 98, 10, 2);
+      // rect(190, 98, 10, 2);
+
+  //     // Top rectangles
+  //     rect(0, 0, 10, 2);
+  //     rect(60, 0, 10, 2);
+  //     rect(130, 0, 10, 2);
+  //     rect(190, 0, 10, 2);
+
+  //     // Bottom middle
+  //     rect(32.5, 68, 5, 2);
+  //     rect(97.5, 68, 5, 2);
+  //     rect(162.5, 68, 5, 2);
+    
+  //     // Top middle
+  //     rect(32.5, 30, 5, 2);
+  //     rect(97.5, 30, 5, 2);
+  //     rect(162.5, 30, 5, 2);
+
+  //     // Middle middle
+  //     rect(0, 48, 5, 2);
+  //     rect(62.5, 48, 5, 2);
+  //     rect(133.5, 48, 5, 2);
+  //     rect(195, 48, 5, 2);
+
+  //     if (difficulty > 1.06) {
+  //       // Pillar
+  //       if (difficulty > 1.09) {
+  //         color("light_black")
+  //       }
+  //       else {
+  //         if (timer % 2 == 0) {
+  //           color("white");
+  //         }
+  //         else {
+  //           color("light_yellow");
+  //         }
+  //       }
+        
+  //       rect(0, 2, 5, 46);
+  //       rect(133.5, 2, 5, 46);
+  //       rect(62.5, 50, 5, 48);
+  //       rect(195, 50, 5, 48);
+
+  //       rect(67.5, 48, 66, 2);
+  //     }
+
+  //--End Level 3 Rectangles----------------------------------
 
 
   // Player controls
