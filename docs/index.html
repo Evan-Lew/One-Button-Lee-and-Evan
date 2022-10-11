@@ -68,6 +68,8 @@ function update() {
     // Rectangle variables
     right_rect_x = 190;
     left_rect_x = 10;
+
+    testing = false;
   }
   
   // Calculate score
@@ -111,6 +113,7 @@ function update() {
     line(77, 42, 117, 42, 1.5);
   }
 
+  // Ending screen
   if (difficulty > 2) {
     if (timer % 2 == 0) {
       color("yellow");
@@ -120,11 +123,134 @@ function update() {
     }
     text("You Win!".toString(), 78, 35);
     line(77, 42, 122, 42, 3);
-  }
 
-  // End the game if player beats level 3
-  if (difficulty > 2.5) {
-    end();
+    color("black");
+    if (difficulty > 2.04) {
+      rect(0, 0, 5, 100);
+    }
+    if (difficulty > 2.05) {
+      rect(5, 95, 190, 5);
+    }
+    if (difficulty > 2.06) {
+      rect(195, 0, 5, 100);
+    }
+    if (difficulty > 2.07) {
+      rect(5, 0, 190, 5);
+    }
+
+    if (difficulty > 2.08) {
+      rect(0, 0, 10, 100);
+    }
+    if (difficulty > 2.09) {
+      rect(5, 90, 190, 10);
+    }
+    if (difficulty > 2.1) {
+      rect(190, 0, 10, 100);
+    }
+    if (difficulty > 2.11) {
+      rect(5, 0, 190, 10);
+    }
+
+    if (difficulty > 2.12) {
+      rect(0, 0, 15, 100);
+    }
+    if (difficulty > 2.13) {
+      rect(5, 85, 190, 15);
+    }
+    if (difficulty > 2.14) {
+      rect(185, 0, 15, 100);
+    }
+    if (difficulty > 2.15) {
+      rect(5, 0, 190, 15);
+    }
+
+    if (difficulty > 2.16) {
+      rect(0, 0, 20, 100);
+    }
+    if (difficulty > 2.17) {
+      rect(5, 80, 190, 20);
+    }
+    if (difficulty > 2.18) {
+      rect(180, 0, 20, 100);
+    }
+    if (difficulty > 2.19) {
+      rect(5, 0, 190, 20);
+    }
+
+    if (difficulty > 2.2) {
+      rect(0, 0, 25, 100);
+    }
+    if (difficulty > 2.21) {
+      rect(5, 75, 190, 25);
+    }
+    if (difficulty > 2.22) {
+      rect(175, 0, 25, 100);
+    }
+    if (difficulty > 2.23) {
+      rect(5, 0, 190, 25);
+    }
+
+    if (difficulty > 2.24) {
+      rect(0, 0, 30, 100);
+    }
+    if (difficulty > 2.25) {
+      rect(5, 70, 190, 30);
+    }
+    if (difficulty > 2.26) {
+      rect(170, 0, 30, 100);
+    }
+    if (difficulty > 2.27) {
+      rect(5, 0, 190, 30);
+    }
+
+    if (difficulty > 2.28) {
+      rect(0, 0, 35, 100);
+    }
+    if (difficulty > 2.29) {
+      rect(5, 65, 190, 35);
+    }
+    if (difficulty > 2.3) {
+      rect(165, 0, 35, 100);
+    }
+    if (difficulty > 2.31) {
+      rect(5, 0, 190, 35);
+    }
+
+    if (difficulty > 2.32) {
+      rect(0, 0, 40, 100);
+    }
+    if (difficulty > 2.33) {
+      rect(5, 60, 190, 40);
+    }
+    if (difficulty > 2.34) {
+      rect(160, 0, 40, 100);
+    }
+    if (difficulty > 2.35) {
+      rect(5, 0, 190, 40);
+    }
+
+    if (difficulty > 2.36) {
+      rect(0, 0, 45, 100);
+    }
+    if (difficulty > 2.37) {
+      rect(5, 55, 190, 45);
+    }
+    if (difficulty > 2.38) {
+      rect(155, 0, 45, 100);
+    }
+    if (difficulty > 2.39) {
+      rect(5, 0, 190, 45);
+    }
+
+    if (difficulty > 2.4) {
+      rect(5, 50, 190, 50);
+      rect(5, 0, 190, 50);
+    }
+  
+    // End the game if player beats level 3
+    if (difficulty > 2.41) {
+      end();
+    }
   }
 
   //--Begin Level 1 Rectangles-------------------------------- 
@@ -331,10 +457,16 @@ function update() {
   }
   //--End Level 2 Rectangles----------------------------------
 
+  // if (difficulty == 1.78 || testing == true) {
+  //   text("SOUND IS ON", 3, 22);
+  //   play("powerUp");
+  //   testing = true;
+  // }
+
   //--Begin Level 3 Rectangles--------------------------------
   if (difficulty < 2) {
     if (difficulty > 1.56) {
-      if (difficulty > 1.57) {
+      if (difficulty > 1.575) {
         color("light_black");
       }
       else {
@@ -344,6 +476,9 @@ function update() {
         else {
           color("light_yellow");
         }
+      }
+      if (difficulty == 1.575) {
+        play("powerUp");
       }
       rect(0, 98, 10, 2);
       rect(60, 98, 10, 2);
@@ -363,6 +498,9 @@ function update() {
           color("light_yellow");
         }
       }
+      if (difficulty == 1.6) {
+        play("powerUp");
+      }
       rect(32.5, 68, 5, 2);
       rect(97.5, 68, 5, 2);
       rect(162.5, 68, 5, 2);
@@ -373,7 +511,7 @@ function update() {
     }
 
     if (difficulty > 1.6) {
-      if (difficulty > 1.62) {
+      if (difficulty > 1.63) {
         color("light_black");
       }
       else {
@@ -383,6 +521,9 @@ function update() {
         else {
           color("light_yellow");
         }
+      }
+      if (difficulty == 1.63) {
+        play("powerUp");
       }
       rect(0, 0, 10, 2);
       rect(60, 0, 10, 2);
@@ -391,7 +532,7 @@ function update() {
     }
 
     if (difficulty > 1.67) {
-      if (difficulty > 1.68) {
+      if (difficulty > 1.685) {
         color("light_black");
       }
       else {
@@ -401,6 +542,9 @@ function update() {
         else {
           color("light_yellow");
         }
+      }
+      if (difficulty == 1.685) {
+        play("powerUp");
       }
       rect(0, 48, 5, 2);
       rect(62.5, 48, 5, 2);
@@ -419,7 +563,10 @@ function update() {
         else {
           color("light_yellow");
         }
-      } 
+      }
+      if (difficulty == 1.73) {
+        play("powerUp");
+      }
       rect(62.5, 50, 5, 48);
     }
 
@@ -434,6 +581,9 @@ function update() {
         else {
           color("light_yellow");
         }
+      }
+      if (difficulty == 1.78) {
+        play("powerUp");
       }
       rect(133.5, 2, 5, 46);
     }
@@ -450,6 +600,9 @@ function update() {
           color("light_yellow");
         }
       }
+      if (difficulty == 1.83) {
+        play("powerUp");
+      }
       rect(0, 2, 5, 46);
     }
 
@@ -465,6 +618,9 @@ function update() {
           color("light_yellow");
         }
       }
+      if (difficulty == 1.88) {
+        play("powerUp");
+      }
       rect(195, 50, 5, 48);
     }
 
@@ -479,6 +635,9 @@ function update() {
         else {
           color("light_yellow");
         }
+      }
+      if (difficulty == 1.93) {
+        play("powerUp");
       }
       rect(67.5, 48, 66, 2);
     }
@@ -498,8 +657,8 @@ function update() {
   const isCollidingwithWall = char(input.isJustPressed ?
     "b" : addWithCharCode("a", floor(animTicks / 20) % 2), x_pos, y_pos, {mirror: { x: direction }}).isColliding.rect.light_black;
   if (isCollidingwithWall) {
-    end();
-    //text("dead", 3, 10);
+    //end();
+    text("dead", 3, 10);
   }
   
   // Player control - flying
@@ -520,7 +679,7 @@ function update() {
   }  
 
   // // Debug
-  // text(difficulty.toString(), 3, 10);
+  text(difficulty.toString(), 3, 15);
   // text(jump_height.toString(), 3, 10);
   // text(y_pos.toString(), 3, 16);
 }
