@@ -26,25 +26,25 @@ STAY IN THE LIGHT
 
 characters = [
 `
-  bb
-  b  b
-bbbbb
-  bbbb
- b
-b
+  CCCC
+ LCWCW
+ LCCCC
+ C  C
+ C   C
+C   C
 `,`
-   gg
-   g  
-ggggg
- gg  g
-g  g
-    g
+  CCCC
+ LCWCW
+RLCCCC
+RR C C 
+   C C
+  C  C
 `,
 ];
 
 options = {
   viewSize: { x: 200, y: 100 },
-  //isPlayingBgm: true,
+  isPlayingBgm: true,
   isReplayEnabled: true,
   seed: 1,
 };
@@ -78,7 +78,7 @@ function update() {
   // Level 1
   if (difficulty < 1.03) {
     if (timer % 2 == 0) {
-    color("yellow");
+      color("yellow");
     }
     else{
       color("light_yellow");
@@ -90,7 +90,7 @@ function update() {
   // Level 2
   if (difficulty > 1.28 && difficulty < 1.31) {
     if (timer % 2 == 0) {
-    color("yellow");
+      color("yellow");
     }
     else{
       color("light_yellow");
@@ -102,7 +102,7 @@ function update() {
   // Level 3
   if (difficulty > 1.53 && difficulty < 1.56) {
     if (timer % 2 == 0) {
-    color("yellow");
+      color("yellow");
     }
     else{
       color("light_yellow");
@@ -142,6 +142,9 @@ function update() {
           color("light_yellow");
         }
       }
+      if (difficulty == 1.06) {
+        play("powerUp");
+      }
       rect(190, 0, 10, 100);
     }
 
@@ -157,6 +160,9 @@ function update() {
         else {
           color("light_yellow");
         }
+      }
+      if (difficulty == 1.09) {
+        play("powerUp");
       }
       rect(0, 0, 10, 100);
     }
@@ -174,6 +180,9 @@ function update() {
           color("light_yellow");
         }
       }
+      if (difficulty == 1.12) {
+        play("powerUp");
+      }
       rect(10, 90, 180, 10);
     }
 
@@ -190,6 +199,9 @@ function update() {
           color("light_yellow");
         }
       }
+      if (difficulty == 1.15) {
+        play("powerUp");
+      }
       rect(10, 0, 180, 10);
     }
 
@@ -204,6 +216,9 @@ function update() {
         else {
           color("light_yellow");
         }
+      }
+      if (difficulty == 1.18) {
+        play("powerUp");
       }
       rect(170, 10, 10, 80);
       rect(20, 10, 10, 80);
@@ -222,6 +237,9 @@ function update() {
         else {
           color("light_yellow");
         }
+      }
+      if (difficulty == 1.2) {
+        play("powerUp");
       }
       rect(130, 30, 10, 40);
       rect(60, 30, 10, 40);
@@ -243,6 +261,9 @@ function update() {
           color("light_yellow");
         }
       }
+      if (difficulty == 1.33) {
+        play("powerUp");
+      }
       rect(97.5, 0, 5, 100);
       rect(195, 0, 5, 10);
       rect(195, 90, 5, 10);
@@ -261,6 +282,9 @@ function update() {
           color("light_yellow");
         }
       }
+      if (difficulty == 1.38) {
+        play("powerUp");
+      }
       rect(195, 30, 5, 40);
       rect(0, 30, 5, 40);
     }
@@ -275,6 +299,9 @@ function update() {
         else {
           color("light_yellow");
         }
+      }
+      if (difficulty == 1.42) {
+        play("powerUp");
       }
       rect(48.75, 0, 5, 30);
       rect(48.75, 70, 5, 30);
@@ -292,6 +319,9 @@ function update() {
         else {
           color("light_yellow");
         }
+      }
+      if (difficulty == 1.45) {
+        play("powerUp");
       }
       rect(25.65, 35, 2.5, 30);
       rect(74.375, 35, 2.5, 30);
@@ -389,7 +419,7 @@ function update() {
         else {
           color("light_yellow");
         }
-      }
+      } 
       rect(62.5, 50, 5, 48);
     }
 
@@ -468,8 +498,8 @@ function update() {
   const isCollidingwithWall = char(input.isJustPressed ?
     "b" : addWithCharCode("a", floor(animTicks / 20) % 2), x_pos, y_pos, {mirror: { x: direction }}).isColliding.rect.light_black;
   if (isCollidingwithWall) {
-    //end();
-    text("dead", 3, 10);
+    end();
+    //text("dead", 3, 10);
   }
   
   // Player control - flying
@@ -490,6 +520,7 @@ function update() {
   }  
 
   // // Debug
+  text(difficulty.toString(), 3, 10);
   // text(jump_height.toString(), 3, 10);
   // text(y_pos.toString(), 3, 16);
 }
