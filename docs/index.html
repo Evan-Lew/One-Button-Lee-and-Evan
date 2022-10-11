@@ -202,72 +202,74 @@ function update() {
   //--End Level 1 Rectangles---------------------------------- 
 
   //--Begin Level 2 Rectangles--------------------------------
-  if (difficulty > 1.31) {
-    if (difficulty > 1.33) {
-        color("light_black")
-      }
-      else {
-        if (timer % 2 == 0) {
-          color("white");
+  if (difficulty < 1.48) {
+    if (difficulty > 1.31) {
+      if (difficulty > 1.33) {
+          color("light_black")
         }
         else {
-          color("light_yellow");
+          if (timer % 2 == 0) {
+            color("white");
+          }
+          else {
+            color("light_yellow");
+          }
         }
-      }
-      rect(97.5, 0, 5, 100);
-      rect(195, 0, 5, 10);
-      rect(195, 90, 5, 10);
-      rect(0, 0, 5, 10);
-      rect(0, 90, 5, 10);
-  }
-  if (difficulty > 1.33) {
-    if (difficulty > 1.35) {
-        color("light_black")
-      }
-      else {
-        if (timer % 2 == 0) {
-          color("white");
-        }
-        else {
-          color("light_yellow");
-        }
-      }
-      rect(195, 30, 5, 40);
-      rect(0, 30, 5, 40);
-  }
-  if (difficulty > 1.35) {
-    if (difficulty > 1.37) {
-        color("light_black")
-      }
-      else {
-        if (timer % 2 == 0) {
-          color("white");
+        rect(97.5, 0, 5, 100);
+        rect(195, 0, 5, 10);
+        rect(195, 90, 5, 10);
+        rect(0, 0, 5, 10);
+        rect(0, 90, 5, 10);
+    }
+    if (difficulty > 1.36) {
+      if (difficulty > 1.38) {
+          color("light_black")
         }
         else {
-          color("light_yellow");
+          if (timer % 2 == 0) {
+            color("white");
+          }
+          else {
+            color("light_yellow");
+          }
         }
-      }
-      rect(48.75, 0, 5, 30);
-      rect(48.75, 70, 5, 30);
-      rect(146.25, 0, 5, 30);
-      rect(146.25, 70, 5, 30);
-  }
-  if (difficulty > 1.37) {
-    if (difficulty > 1.39) {
-        color("light_black")
-      }
-      else {
-        if (timer % 2 == 0) {
-          color("white");
+        rect(195, 30, 5, 40);
+        rect(0, 30, 5, 40);
+    }
+    if (difficulty > 1.4) {
+      if (difficulty > 1.42) {
+          color("light_black")
         }
         else {
-          color("light_yellow");
+          if (timer % 2 == 0) {
+            color("white");
+          }
+          else {
+            color("light_yellow");
+          }
         }
-      }
-      rect(25.65, 35, 2.5, 30);
-      rect(74.375, 35, 2.5, 30);
-      rect(123.125, 35, 2.5, 30);
-      rect(171.875, 35, 2.5, 30);
+        rect(48.75, 0, 5, 30);
+        rect(48.75, 70, 5, 30);
+        rect(146.25, 0, 5, 30);
+        rect(146.25, 70, 5, 30);
+    }
+    if (difficulty > 1.43) {
+      if (difficulty > 1.45) {
+          color("light_black")
+        }
+        else {
+          if (timer % 2 == 0) {
+            color("white");
+          }
+          else {
+            color("light_yellow");
+          }
+        }
+        rect(25.65, 35, 2.5, 30);
+        rect(74.375, 35, 2.5, 30);
+        rect(123.125, 35, 2.5, 30);
+        rect(171.875, 35, 2.5, 30);
+    }
   }
   //--End Level 2 Rectangles----------------------------------
 
@@ -285,7 +287,8 @@ function update() {
   const isCollidingwithWall = char(input.isJustPressed ?
     "b" : addWithCharCode("a", floor(animTicks / 20) % 2), x_pos, y_pos, {mirror: { x: direction }}).isColliding.rect.light_black;
   if (isCollidingwithWall) {
-    end();
+    //end();
+    text("dead", 3, 10);
   }
   
   // Player control - flying
