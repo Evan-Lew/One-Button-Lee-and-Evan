@@ -74,11 +74,11 @@ function update() {
   timer += 1;
   score = (timer) / 50;
 
-  // Level titles
+  // --Level titles--------------------------------
   // Level 1
   if (difficulty < 1.03) {
     if (timer % 2 == 0) {
-      color("yellow");
+    color("yellow");
     }
     else{
       color("light_yellow");
@@ -90,12 +90,24 @@ function update() {
   // Level 2
   if (difficulty > 1.28 && difficulty < 1.31) {
     if (timer % 2 == 0) {
-      color("yellow");
+    color("yellow");
     }
     else{
       color("light_yellow");
     }
     text("LEVEL 2".toString(), 78, 35);
+    line(77, 42, 117, 42, 1.5);
+  }
+
+  // Level 3
+  if (difficulty > 1.53 && difficulty < 1.56) {
+    if (timer % 2 == 0) {
+      color("red");
+    }
+    else{
+      color("light_red");
+    }
+    text("LEVEL 3".toString(), 78, 35);
     line(77, 42, 117, 42, 1.5);
   }
 
@@ -202,7 +214,7 @@ function update() {
   //--End Level 1 Rectangles---------------------------------- 
 
   //--Begin Level 2 Rectangles--------------------------------
-  if (difficulty < 1.48) {
+  if (difficulty < 1.5) {
     if (difficulty > 1.31) {
       if (difficulty > 1.33) {
           color("light_black")
