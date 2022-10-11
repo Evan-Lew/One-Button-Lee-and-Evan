@@ -99,7 +99,7 @@ function update() {
     line(77, 42, 117, 42, 1.5);
   }
 
-  //--Begin Level 1 Rectangles---------------------------------- 
+  //--Begin Level 1 Rectangles-------------------------------- 
   if (difficulty < 1.25) {
     // Adding right rectangle
     if (difficulty > 1.03) {
@@ -114,7 +114,7 @@ function update() {
           color("light_yellow");
         }
       }
-      rect(190, 0, 10, 100);  
+      rect(190, 0, 10, 100);
     }
 
     // Adding left rectangle
@@ -200,6 +200,77 @@ function update() {
     }
   }
   //--End Level 1 Rectangles---------------------------------- 
+
+  //--Begin Level 2 Rectangles--------------------------------
+  if (difficulty > 1.31) {
+    if (difficulty > 1.33) {
+        color("light_black")
+      }
+      else {
+        if (timer % 2 == 0) {
+          color("white");
+        }
+        else {
+          color("light_yellow");
+        }
+      }
+      rect(97.5, 0, 5, 100);
+      rect(195, 0, 5, 10);
+      rect(195, 90, 5, 10);
+      rect(0, 0, 5, 10);
+      rect(0, 90, 5, 10);
+  }
+  if (difficulty > 1.33) {
+    if (difficulty > 1.35) {
+        color("light_black")
+      }
+      else {
+        if (timer % 2 == 0) {
+          color("white");
+        }
+        else {
+          color("light_yellow");
+        }
+      }
+      rect(195, 30, 5, 40);
+      rect(0, 30, 5, 40);
+  }
+  if (difficulty > 1.35) {
+    if (difficulty > 1.37) {
+        color("light_black")
+      }
+      else {
+        if (timer % 2 == 0) {
+          color("white");
+        }
+        else {
+          color("light_yellow");
+        }
+      }
+      rect(48.75, 0, 5, 30);
+      rect(48.75, 70, 5, 30);
+      rect(146.25, 0, 5, 30);
+      rect(146.25, 70, 5, 30);
+  }
+  if (difficulty > 1.37) {
+    if (difficulty > 1.39) {
+        color("light_black")
+      }
+      else {
+        if (timer % 2 == 0) {
+          color("white");
+        }
+        else {
+          color("light_yellow");
+        }
+      }
+      rect(25.65, 35, 2.5, 30);
+      rect(74.375, 35, 2.5, 30);
+      rect(123.125, 35, 2.5, 30);
+      rect(171.875, 35, 2.5, 30);
+  }
+  //--End Level 2 Rectangles----------------------------------
+
 
   // Player controls
   color("black");
