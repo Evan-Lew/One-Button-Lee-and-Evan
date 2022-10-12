@@ -124,7 +124,7 @@ function update() {
     text("You Win!".toString(), 78, 35);
     line(77, 42, 122, 42, 3);
 
-    color("black");
+    color("light_black");
     if (difficulty > 2.04) {
       rect(0, 0, 5, 100);
     }
@@ -229,26 +229,27 @@ function update() {
       rect(5, 0, 190, 40);
     }
 
-    if (difficulty > 2.36) {
-      rect(0, 0, 45, 100);
-    }
-    if (difficulty > 2.37) {
-      rect(5, 55, 190, 45);
-    }
-    if (difficulty > 2.38) {
-      rect(155, 0, 45, 100);
-    }
-    if (difficulty > 2.39) {
-      rect(5, 0, 190, 45);
-    }
+    // // Old
+    // if (difficulty > 2.36) {
+    //   rect(0, 0, 45, 100);
+    // }
+    // if (difficulty > 2.37) {
+    //   rect(5, 55, 190, 45);
+    // }
+    // if (difficulty > 2.38) {
+    //   rect(155, 0, 45, 100);
+    // }
+    // if (difficulty > 2.39) {
+    //   rect(5, 0, 190, 45);
+    // }
 
-    if (difficulty > 2.4) {
-      rect(5, 50, 190, 50);
-      rect(5, 0, 190, 50);
-    }
+    // if (difficulty > 2.4) {
+    //   rect(5, 50, 190, 50);
+    //   rect(5, 0, 190, 50);
+    // }
   
     // End the game if player beats level 3
-    if (difficulty > 2.41) {
+    if (difficulty > 2.4) {
       end();
     }
   }
@@ -457,12 +458,6 @@ function update() {
   }
   //--End Level 2 Rectangles----------------------------------
 
-  // if (difficulty == 1.78 || testing == true) {
-  //   text("SOUND IS ON", 3, 22);
-  //   play("powerUp");
-  //   testing = true;
-  // }
-
   //--Begin Level 3 Rectangles--------------------------------
   if (difficulty < 2) {
     if (difficulty > 1.56) {
@@ -564,7 +559,7 @@ function update() {
           color("light_yellow");
         }
       }
-      if (difficulty == 1.73) {
+      if (difficulty == 1.7325) {
         play("powerUp");
       }
       rect(62.5, 50, 5, 48);
@@ -582,7 +577,7 @@ function update() {
           color("light_yellow");
         }
       }
-      if (difficulty == 1.78) {
+      if (difficulty == 1.7825) {
         play("powerUp");
       }
       rect(133.5, 2, 5, 46);
@@ -600,7 +595,7 @@ function update() {
           color("light_yellow");
         }
       }
-      if (difficulty == 1.83) {
+      if (difficulty == 1.835) {
         play("powerUp");
       }
       rect(0, 2, 5, 46);
@@ -618,7 +613,7 @@ function update() {
           color("light_yellow");
         }
       }
-      if (difficulty == 1.88) {
+      if (difficulty == 1.885) {
         play("powerUp");
       }
       rect(195, 50, 5, 48);
@@ -636,7 +631,7 @@ function update() {
           color("light_yellow");
         }
       }
-      if (difficulty == 1.93) {
+      if (difficulty == 1.935) {
         play("powerUp");
       }
       rect(67.5, 48, 66, 2);
@@ -657,8 +652,9 @@ function update() {
   const isCollidingwithWall = char(input.isJustPressed ?
     "b" : addWithCharCode("a", floor(animTicks / 20) % 2), x_pos, y_pos, {mirror: { x: direction }}).isColliding.rect.light_black;
   if (isCollidingwithWall) {
-    //end();
-    text("dead", 3, 10);
+    play("explosion");
+    end();
+    //text("dead", 3, 10);
   }
   
   // Player control - flying
@@ -679,7 +675,7 @@ function update() {
   }  
 
   // // Debug
-  text(difficulty.toString(), 3, 15);
+  // text(difficulty.toString(), 3, 15);
   // text(jump_height.toString(), 3, 10);
   // text(y_pos.toString(), 3, 16);
 }
